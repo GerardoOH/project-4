@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Level Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Experience Level Predictor</h1>
+        <form method="post" action="/predict">
+            <label for="Age">Age</label>
+            <input type="number" id="Age" name="Age" required>
+
+            <label for="Weight">Weight (kg)</label>
+            <input type="number" step="0.1" id="Weight" name="Weight" required>
+
+            <label for="Height">Height (m)</label>
+            <input type="number" step="0.01" id="Height" name="Height" required>
+
+            <label for="Max_BPM">Max BPM</label>
+            <input type="number" id="Max_BPM" name="Max_BPM" required>
+
+            <label for="Avg_BPM">Avg BPM</label>
+            <input type="number" id="Avg_BPM" name="Avg_BPM" required>
+
+            <label for="Resting_BPM">Resting BPM</label>
+            <input type="number" id="Resting_BPM" name="Resting_BPM" required>
+
+            <label for="Session_Duration">Session Duration (hours)</label>
+            <input type="number" step="0.1" id="Session_Duration" name="Session_Duration" required>
+
+            <label for="Calories_Burned">Calories Burned</label>
+            <input type="number" id="Calories_Burned" name="Calories_Burned" required>
+
+            <label for="Fat_Percentage">Fat Percentage</label>
+            <input type="number" step="0.1" id="Fat_Percentage" name="Fat_Percentage" required>
+
+            <label for="Water_Intake">Water Intake (liters)</label>
+            <input type="number" step="0.1" id="Water_Intake" name="Water_Intake" required>
+
+            <label for="Workout_Frequency">Workout Frequency (days/week)</label>
+            <input type="number" id="Workout_Frequency" name="Workout_Frequency" required>
+
+            <label for="BMI">BMI</label>
+            <input type="number" step="0.1" id="BMI" name="BMI" required>
+
+            <label>Gender</label>
+            <select name="Gender_Male" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+
+            <label>Workout Type</label>
+            <select name="Workout_Type" required>
+                <option value="HIIT">HIIT</option>
+                <option value="Strength">Strength</option>
+                <option value="Yoga">Yoga</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            Prediction: {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
