@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Type Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+        form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+        }
+        form label {
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>Workout Type Predictor</header>
+    <main>
+        <form action="/predict" method="POST">
+            <label for="Age">Age:</label>
+            <input type="number" step="any" name="Age" placeholder="e.g., 25" required>
+            
+            <label for="Weight (kg)">Weight (kg):</label>
+            <input type="number" step="any" name="Weight (kg)" placeholder="e.g., 70.0" required>
+            
+            <label for="Height (m)">Height (m):</label>
+            <input type="number" step="any" name="Height (m)" placeholder="e.g., 1.75" required>
+            
+            <label for="Max_BPM">Max BPM:</label>
+            <input type="number" step="any" name="Max_BPM" placeholder="e.g., 190" required>
+            
+            <label for="Avg_BPM">Average BPM:</label>
+            <input type="number" step="any" name="Avg_BPM" placeholder="e.g., 150" required>
+            
+            <label for="Resting_BPM">Resting BPM:</label>
+            <input type="number" step="any" name="Resting_BPM" placeholder="e.g., 60" required>
+            
+            <label for="BMI">BMI:</label>
+            <input type="number" step="any" name="BMI" placeholder="e.g., 22.9" required>
+            
+            <label for="Calories_Burned">Calories Burned:</label>
+            <input type="number" step="any" name="Calories_Burned" placeholder="e.g., 700" required>
+            
+            <button type="submit">Predict Workout Type</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </main>
+</body>
+</html>
