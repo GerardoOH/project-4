@@ -1,14 +1,31 @@
-# Project 4: Gym Membership Drop predictions
+# Project 4: User Experience Level Prediction
 
-## Project Steps:
-1. Clean the original data and export new CSV files with the cleaned data
-2. Create ERD structure and PostgreSQL database
-3. Data extraction with Python for machine learning
-4. Machine learning process
-5. Front End development with Tableau
+### Business Benefits:
 
-## Data Sources:
-- The raw data is available in the "Raw_data" folder
-- Cleaned data is available in the "Data_source" folder
-- Jupyer notebooks are stored in the "Code" folder. This contains the scripts for data cleaning, SQLAlchemy and Machine learning processes.
-- SQL Database files are stored in the "Database" folder
+* Personalized member experience
+
+    - By predicting a member's experience level, the gym can tailor workout plans, group activities, and personal training programs to align with their fitness goals
+
+* Resource Optimization
+
+    - The model helps allocate trainers, equipment and classes efficiently
+    - For instance, beginners can be assigned entry-level classes or group trainings, while advanced members can get specialized trainers or advanced workshops
+
+* Improved Marketing strategies
+    - The insights from the model can inform targeted marketing campaigns
+    - Begineers can be encouraged to join introductory programs
+    - Intermediate users can be upsold to personal training or higher-tier memberships
+
+* Retention and engagement
+    - The gym can identify members who are at risk of losing motivation like begineer who may struggle to start and provide additional support or incentives
+
+* Data-Driven Decision Making
+    - By understanding which factors contribute the most to a member's progress, the gym can design programs that maximize member outcomes
+
+
+
+### Project Data Structure:
+
+- 'Code' folder contains SQL data, notebook with code, machine learning model file (random forest) and the scaler file
+- 'Data_Source' folder contains the original CSV file
+- 'Experience_level_predictor' folder contains the files for the model deployment using flask using HTML as the front-end.
